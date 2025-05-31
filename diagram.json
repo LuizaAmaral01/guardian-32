@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "Luiza Amaral",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": -62.36, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 92.4, "left": 51.8, "attrs": { "color": "red" } },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 71.2, "left": 88.62, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 21.6,
+      "left": -142.2,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pir1:OUT", "esp:15", "green", [ "v0" ] ],
+    [ "esp:2", "led1:A", "green", [ "h0" ] ],
+    [ "bz1:1", "esp:13", "green", [ "v0" ] ],
+    [ "bz1:2", "esp:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
